@@ -1,7 +1,56 @@
-<p>Weapons</p>
+<p>All Weapons</p>
 
-<ul>
-  @for (weapon of weapons; track weapon.id) {
-    <li>{{weapon.name}}</li>  
+@if(weaponsResults$ | async; as resultObjects) {
+<ul class="weapons__container">
+  @for (weapon of resultObjects.data; track weapon.id) {
+  <div>
+    <li>{{ weapon.name }}</li>
+    <img src="{{ weapon.imageList }}" />
+    <h3>Stats:</h3>
+    <p>Category: {{ weapon.category }}</p>
+    <p>
+      Fire rate:
+      {{ weapon.stats.fireRate ? weapon.stats.fireRate + " rps" : "No apply" }}
+    </p>
+    <p>
+      Equip time:
+      {{
+        weapon.stats.equipTimeSeconds
+          ? weapon.stats.equipTimeSeconds + " s"
+          : "No apply"
+      }}
+    </p>
+    <p>
+      Reload time:
+      {{
+        weapon.stats.reloadTimeSeconds
+          ? weapon.stats.reloadTimeSeconds + " s"
+          : "No apply"
+      }}
+    </p>
+    <p>
+      Wall Penetration:
+      {{
+        weapon.stats.wallPenetration ? weapon.stats.wallPenetration : "No apply"
+      }}
+    </p>
+    <div>
+      <h3>Skins:</h3>
+      @for (skin of weapon.skins; track skin.id) {
+      <ul>
+        @if (!skin.name.includes("Standard") && !skin.name.includes("Random")) {
+          <li>
+            <p>{{ skin.name }}</p>
+            <img src="{{ skin.image }}" alt="{{ skin.name }} image" />
+          </li>
+          
+        }
+      </ul>
+
+      }
+    </div>
+  </div>
   }
 </ul>
+
+}
