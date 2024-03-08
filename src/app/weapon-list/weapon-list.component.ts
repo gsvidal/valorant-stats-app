@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Weapon } from '../app.component';
 import { WeaponsService } from '../services/weapons.service';
 import { Observable } from 'rxjs';
-import { WeaponsResults } from '../interfaces/weapon';
+import { Weapon, WeaponsResults } from '../interfaces/weapon';
 import { AsyncPipe } from '@angular/common';
+import { WeaponItemComponent } from '../weapon-item/weapon-item.component';
 
 @Component({
   selector: 'app-weapon-list',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, WeaponItemComponent],
   templateUrl: './weapon-list.component.html',
   styleUrl: './weapon-list.component.css',
 })
@@ -16,10 +16,17 @@ export class WeaponListComponent implements OnInit {
   public weaponsResults$!: Observable<WeaponsResults>;
   constructor(private service: WeaponsService) {}
 
-  @Input() weapons: Weapon[] = [];
-  @Input() title: string = '';
-
   ngOnInit(): void {
-      this.weaponsResults$ = this.service.getWeaponList();
+    this.weaponsResults$ = this.service.getWeaponList();
+  }
+
+  hoveredWeaponId: string | null = '';
+  handleWeaponHoverId(id: string) {
+    this.hoveredWeaponId = id;
+    console.log('Hovered Weapon ID:', this.hoveredWeaponId);
+  }
+  clearHover() {
+    this.hoveredWeaponId = null;
+    console.log('Hovered Weapon ID Cleared');
   }
 }
