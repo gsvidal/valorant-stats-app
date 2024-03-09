@@ -4,13 +4,16 @@
   --main: rgb(29, 29, 29);
   --secondary-light: rgb(231, 224, 187);
   --secondary-opac-25: rgba(190, 163, 9, 0.25);
-  --secondary-opac-50: rgba(190, 163, 9, 0.50);
+  --secondary-opac-50: rgba(190, 163, 9, 0.5);
   --secondary: rgb(190, 163, 9);
   --grey: grey;
   --grey-darker: rgb(58, 58, 58);
   --grey-dark: rgb(75, 75, 75);
   --grey-light: rgb(172, 172, 172);
   --white-opac-50: rgba(255, 255, 255, 0.5);
+
+  --background-size: 1000px;
+  --background-position: top;
 }
 
 @font-face {
@@ -29,19 +32,56 @@ html {
 }
 
 body {
+  height: 100vh;
+  background-image: url("./assets/images/map.jpg");
+  background-repeat: no-repeat;
+  animation: slidein 50s infinite alternate forwards;
   font-size: 1.4rem;
   font-family: "Tugsten-Bold", arial, georgia, sans-serif;
   color: var(--secondary);
-  background-color: var(--main);
   text-align: center;
 }
 
+@keyframes slidein {
+  from {
+    background-position: var(--background-position);
+    background-size: var(--background-size);
+  }
+  to {
+    background-position: calc(-1000px) 0px;
+    background-size: calc(var(--background-size) + 750px);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  :root {
+    --background-size: 2000px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  :root {
+    --background-size: 3000px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  :root {
+    --background-size: 4000px;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  :root {
+    --background-size: 6500px;
+  }
+}
 h1 {
-  font-size: 8rem;
-  margin: 50px 0;
+  font-size: 12rem;
+  padding: 40px 0;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 7rem;
   color: white;
 }

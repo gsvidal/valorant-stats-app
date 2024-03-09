@@ -23,10 +23,8 @@ export class WeaponListComponent implements OnInit {
   hoveredWeaponId: string | null = '';
   handleWeaponHoverId(id: string) {
     this.hoveredWeaponId = id;
-    console.log('Hovered Weapon ID:', this.hoveredWeaponId);
   }
   clearHover() {
     this.hoveredWeaponId = null;
-    console.log('Hovered Weapon ID Cleared');
   }
 }

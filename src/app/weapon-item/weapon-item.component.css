@@ -11,7 +11,11 @@
 }
 
 .weapon__item-image.is_odin {
-  width: 101%;
+  width: 97%;
+}
+
+.weapon__item-image.is_judge {
+  width: 89%;
 }
 
 .small {
