@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WeaponsService } from '../services/weapons.service';
 import { Observable } from 'rxjs';
 import { Weapon, WeaponsResults } from '../interfaces/weapon';
@@ -13,6 +13,10 @@ import { WeaponItemComponent } from '../weapon-item/weapon-item.component';
   styleUrl: './weapon-list.component.css',
 })
 export class WeaponListComponent implements OnInit {
+  @Input() weaponDetailId!: string
+  @Output() setIsBackdropOpen = new EventEmitter<boolean>()
+  @Output() setWeapon = new EventEmitter<Weapon>()
+
   public weaponsResults$!: Observable<WeaponsResults>;
   constructor(private service: WeaponsService) {}
 
@@ -21,10 +25,30 @@ export class WeaponListComponent implements OnInit {
   }
 
   hoveredWeaponId: string | null = '';
+
   handleWeaponHoverId(id: string) {
     this.hoveredWeaponId = id;
   }
+
   clearHover() {
     this.hoveredWeaponId = null;
+  }
+
+  // weaponClicked!: Weapon
+
+  handleClickWeapon(weapon: Weapon) {
+    console.log(weapon.id)
+    this.weaponDetailId = weapon.id;
+    this.setBackdrop(true)
+    this.setWeaponClicked(weapon)
+    // this.weaponClicked = {...weapon}
+  }
+
+  setBackdrop(val: boolean) {
+    this.setIsBackdropOpen.emit(val)
+  }
+
+  setWeaponClicked(weapon: Weapon) {
+    this.setWeapon.emit(weapon)
   }
 }

@@ -31,6 +31,8 @@ export class WeaponsAdapterService {
           reloadTimeSeconds: weapon.weaponStats?.reloadTimeSeconds || null,
           wallPenetration:
             this.getStatSlice(weapon.weaponStats?.wallPenetration) || null,
+          zoomMultiplier: weapon.weaponStats?.adsStats?.zoomMultiplier || null,
+          firstBulletAccuracy: weapon.weaponStats?.adsStats?.firstBulletAccuracy || null
         },
         skins: weapon.skins.map((skin: any): WeaponSkin => ({
           id: skin.uuid,

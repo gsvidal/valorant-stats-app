@@ -1,7 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
-
 :root {
   --main: rgb(29, 29, 29);
+  --main-opac-90: rgba(29, 29, 29, 0.9);
   --secondary-light: rgb(231, 224, 187);
   --secondary-opac-25: rgba(190, 163, 9, 0.25);
   --secondary-opac-50: rgba(190, 163, 9, 0.5);
@@ -14,6 +13,8 @@
 
   --background-size: 1000px;
   --background-position: top;
+
+  --details-width: 800px;
 }
 
 @font-face {
@@ -84,4 +85,14 @@ h1 {
 h2 {
   font-size: 7rem;
   color: white;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-opac-90);
 }

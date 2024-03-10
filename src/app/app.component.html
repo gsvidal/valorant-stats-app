@@ -1,6 +1,15 @@
 <main class="main">
-  <h1>Valorant Stats App</h1>
-  <app-weapon-list />
+  <h1>Valorant Stats</h1>
+  <app-weapon-list
+    weaponDetailId="{{ weaponDetailId }}"
+    (setIsBackdropOpen)="handleBackdrop($event)"
+    (setWeapon)="handleClickOnWeapon($event)"
+  />
+  @if (isBackdropOpen) {
+  <p class="backdrop">
+    <app-weapon-detail [weapon]="weaponClicked" />
+  </p>
+  }
 </main>
 
 <router-outlet />

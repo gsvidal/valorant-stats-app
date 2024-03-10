@@ -1,0 +1,12 @@
+.weapon-detail {
+  position: absolute;
+  top: calc(50vh - (var(--details-width) / 2));
+  left: calc(50vw - (var(--details-width) / 2));
+  z-index: 2;
+  width: var(--details-width);
+  height: var(--details-width);
+  border: 1px solid white;
+  border-radius: 50%;
+  color: var(--secondary);
+  font-size: 4rem;
+}

@@ -1,0 +1,85 @@
+<section class="weapon-detail">
+  <!-- <p>{{ weapon.category }}</p> -->
+  <!-- <h3>Stats:</h3> -->
+  <div class="weapon__stats">
+    <p>Category: {{ weapon.category }}</p>
+    <p>
+      <span>Fire rate (rps):</span>
+      <span>
+        {{
+          weapon.stats.fireRate ? weapon.stats.fireRate : "No apply"
+        }}
+      </span>
+      <span class="stat-icon stat-icon--fire-rate"></span>
+    </p>
+    <p>
+      <span> Equip time (s): </span>
+      <span>
+        {{
+          weapon.stats.equipTimeSeconds
+            ? weapon.stats.equipTimeSeconds
+            : "No apply"
+        }}
+      </span>
+      <span class="stat-icon stat-icon--equip-time"></span>
+    </p>
+    <p>
+      <span> Reload time (s): </span>
+      <span>
+        {{
+          weapon.stats.reloadTimeSeconds
+            ? weapon.stats.reloadTimeSeconds
+            : "No apply"
+        }}
+      </span>
+      <span class="stat-icon stat-icon--reload-time"></span>
+    </p>
+    <p>
+      <span> Wall Penetration (s): </span>
+      <span>
+        {{
+          weapon.stats.wallPenetration
+            ? weapon.stats.wallPenetration
+            : "No apply"
+        }}
+      </span>
+      <span class="stat-icon stat-icon--wall-penetration"></span>
+    </p>
+    <p>
+      <span>Zoom Multiplier:</span>
+      <span
+        >{{
+          weapon.stats.adsStats.zoomMultiplier
+            ? weapon.stats.adsStats.zoomMultiplier
+            : "No apply"
+        }}
+      </span>
+      <span class="stat-icon stat-icon--zoom-multiplier"></span>
+    </p>
+    <p>
+      <span> First Bullet Accuracy: </span>
+      <span>
+        {{
+          weapon.stats.firstBulletAccuracy
+            ? weapon.stats.firstBulletAccuracy
+            : "No apply"
+        }}
+      </span>
+      <span class="stat-icon stat-icon--fire-first-bullet-accuracy"></span>
+    </p>
+  </div>
+  <!-- <div>
+  <h3>Skins:</h3>
+  @for (skin of weapon.skins; track skin.id) {
+    <ul>
+      @if (!skin.name.includes("Standard") && !skin.name.includes("Random")) {
+        <li>
+          <p>{{ skin.name }}</p>
+          <img src="{{ skin.image }}" alt="{{ skin.name }} image" />
+        </li>
+        
+      }
+    </ul>
+  }
+</div> -->
+</section>
