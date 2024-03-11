@@ -6,9 +6,16 @@
     (setWeapon)="handleClickOnWeapon($event)"
   />
   @if (isBackdropOpen) {
-  <p class="backdrop">
+  <div class="backdrop">
     <app-weapon-detail [weapon]="weaponClicked" />
-  </p>
+    <div class="weapon-detail-inner">
+        <img
+          src="{{ weaponClicked['imageDetail'] }}"
+          alt="{{ weaponClicked['imageDetail'] }} logo"
+          width="190"
+        />
+    </div>
+  </div>
   }
 </main>
 

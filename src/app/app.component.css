@@ -1,0 +1,22 @@
+.weapon-detail-inner {
+  position: absolute;
+  top: calc(50vh - (var(--sector-inner-width) / 2));
+  left: calc(50vw - (var(--sector-inner-width) / 2));
+  z-index: 3;
+  width: var(--sector-inner-width);
+  height: var(--sector-inner-width);
+  border-radius: 50%;
+  border: 15px solid var(--main-opac-90);
+  background-color: var(--grey-darker);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.weapon-detail-inner img {
+  position: relative;
+  top: 0;
+  width: 95%;
+  /* cursor: zoom-in; */
+}

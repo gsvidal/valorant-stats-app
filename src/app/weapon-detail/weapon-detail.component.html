@@ -1,27 +1,35 @@
 <section class="weapon-detail">
+  <!-- <div class="weapon-detail-inner"></div> -->
   <!-- <p>{{ weapon.category }}</p> -->
   <!-- <h3>Stats:</h3> -->
 
   <!-- <p>Category: {{ weapon.category }}</p> -->
   @for (stat of stats; track stat.property; let index = $index) {
   <!-- <div class="weapon__stats"> -->
-    <div class="stats-wrapper">
-      <div
-        class="stats-sector stats-sector--{{ stat['classModifier'] }}"
-        [ngStyle]="getSectorStyle(index)"
-      ></div>
-      <div class="stats-info">
-        <span>{{ stat["title"] }}</span>
-        <span>
-          {{
-            weapon.stats[stat.property]
-              ? weapon.stats[stat.property]
-              : "No apply"
-          }}
-        </span>
-        <span class="stat-icon stat-icon--{{ stat['classModifier'] }}"></span>
-      </div>
+  <div class="stats-wrapper">
+    <div
+      class="stats-sector stats-sector--{{ stat['classModifier'] }}"
+      [ngStyle]="getSectorStyle(index)"
+    ></div>
+
+    <div
+      class="stats-info number--{{ index + 1 }}"
+    >
+      <p>{{ stat["title"] }}</p>
+      <p class="data">
+        {{
+          weapon.stats[stat.property] ? weapon.stats[stat.property] : "No apply"
+        }}
+      </p>
+      <p class="stat-icon stat-icon--{{ stat['classModifier'] }}"></p>
     </div>
+    <div
+      class="stats-sector stats-sector2 stats-sector--{{
+        stat['classModifier']
+      }}"
+      [ngStyle]="getSectorStyle(index)"
+    ></div>
+  </div>
   <!-- </div> -->
   }
 

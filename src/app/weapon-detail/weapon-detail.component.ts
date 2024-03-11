@@ -47,7 +47,7 @@ export class WeaponDetailComponent {
     {
       title: 'First Bullet Accuracy',
       property: 'firstBulletAccuracy',
-      classModifier: 'fire-first-bullet-accuracy',
+      classModifier: 'first-bullet-accuracy',
     },
   ];
 
