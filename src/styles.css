@@ -10,11 +10,13 @@
   --grey-dark: rgb(75, 75, 75);
   --grey-light: rgb(172, 172, 172);
   --white-opac-50: rgba(255, 255, 255, 0.5);
+  --white-opac-5: rgba(255, 255, 255, 0.05);
 
   --background-size: 1000px;
   --background-position: top;
 
-  --details-width: 800px;
+  --sector-inner-width: 300px;
+  --sector-outer-width: 500px;
 }
 
 @font-face {

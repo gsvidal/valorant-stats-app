@@ -1,4 +1,5 @@
 export interface WeaponStats {
+  [key: string]: number | string | null;
   fireRate: number | null;
   equipTimeSeconds: number | null;
   reloadTimeSeconds: number | null;
