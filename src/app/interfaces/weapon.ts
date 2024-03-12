@@ -9,6 +9,7 @@ export interface WeaponStats {
 }
 
 export interface WeaponSkin {
+  [key: string]: number | string | null;
   id: string;
   name: string;
   image: string;

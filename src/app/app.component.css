@@ -3,6 +3,9 @@
   top: calc(50vh - (var(--sector-inner-width) / 2));
   left: calc(50vw - (var(--sector-inner-width) / 2));
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: var(--sector-inner-width);
   height: var(--sector-inner-width);
   border-radius: 50%;
@@ -11,12 +14,70 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.weapon-detail-inner img {
+.weapon-detail-inner figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.weapon-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+}
+
+.weapon-image.side-arm {
+  width: 130px;
+}
+
+.weapon-name {
+  font-size: 2.2rem;
+}
+
+.weapon-skin {
+  color: var(--grey-light);
+}
+
+@keyframes logo-filter-animation {
+  0% {
+    filter: invert(0%) sepia(11%) saturate(527%) hue-rotate(150deg)
+      brightness(107%) contrast(99%);
+  }
+  33% {
+    filter: invert(33%) sepia(48%) saturate(729%) hue-rotate(222deg)
+      brightness(100%) contrast(101%);
+  }
+  66% {
+    filter: invert(66%) sepia(57%) saturate(638%) hue-rotate(273deg)
+      brightness(90%) contrast(87%);
+  }
+  100% {
+    filter: invert(100%) sepia(57%) saturate(638%) hue-rotate(273deg)
+      brightness(90%) contrast(87%);
+  }
+}
+
+.skin-controller {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url("../assets/icons/chevrons-up.svg") center/cover no-repeat;
   position: relative;
-  top: 0;
-  width: 95%;
-  /* cursor: zoom-in; */
+  top: -10px;
+  cursor: pointer;
+  animation: logo-filter-animation 2s infinite alternate;
+}
+
+.skin-controller:hover {
+  filter: brightness(100%);
+  animation: none;
+}
+
+.skin-controller--down {
+  background-image: url("../assets/icons/chevrons-down.svg");
+  top: 10px;
 }

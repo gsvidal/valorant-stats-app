@@ -9,11 +9,41 @@
   <div class="backdrop">
     <app-weapon-detail [weapon]="weaponClicked" />
     <div class="weapon-detail-inner">
+      <span
+        class="skin-controller skin-controller--up"
+        (click)="handlePreviousSkin()"
+      ></span>
+      <p class="weapon-name">{{ weaponClicked.name }}</p>
+      <figure>
         <img
-          src="{{ weaponClicked['imageDetail'] }}"
-          alt="{{ weaponClicked['imageDetail'] }} logo"
+          [ngClass]="{
+            'weapon-image': true,
+            'side-arm': weaponClicked.category === 'Sidearm'
+          }"
+          src="{{
+            skinIndex !== null
+              ? weaponClicked.skins[skinIndex]['image']
+              : weaponClicked.imageDetail
+          }}"
+          alt="{{
+            skinIndex !== null
+              ? weaponClicked.skins[skinIndex]['image']
+              : 'Standard'
+          }} skin"
           width="190"
         />
+      </figure>
+      <p class="weapon-skin">
+        {{
+          skinIndex !== null
+            ? weaponClicked.skins[skinIndex]["name"]
+            : "Standard"
+        }}
+      </p>
+      <span
+        class="skin-controller skin-controller--down"
+        (click)="handleNextSkin()"
+      ></span>
     </div>
   </div>
   }

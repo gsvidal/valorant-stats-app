@@ -18,7 +18,7 @@
       <p>{{ stat["title"] }}</p>
       <p class="data">
         {{
-          weapon.stats[stat.property] ? weapon.stats[stat.property] : "No apply"
+          weapon.stats[stat.property] ? weapon.stats[stat.property] : "-"
         }}
       </p>
       <p class="stat-icon stat-icon--{{ stat['classModifier'] }}"></p>
