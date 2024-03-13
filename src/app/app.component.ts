@@ -28,9 +28,19 @@ export class AppComponent {
     this.isBackdropOpen = value;
   }
 
+  // Filter out Random and Standard Skins, also skins without image (null)
+  filterSkins(weapon: Weapon) {
+    const weaponFilteredSkins = weapon.skins.filter((skin: WeaponSkin) => !skin.name.includes("Standard") &&!skin.name.includes("Random") && skin.image !== null )
+    this.weaponClicked.skins = [...weaponFilteredSkins]
+  }
+
+
   handleClickOnWeapon(weapon: Weapon) {
     this.weaponClicked = { ...weapon };
+    this.filterSkins(this.weaponClicked)
     this.skinsLength = this.weaponClicked?.skins?.length;
+    // console.log(this.weaponClicked)
+    // console.log(this.skinsLength)
   }
 
   handlePreviousSkin() {

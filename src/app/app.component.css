@@ -40,6 +40,7 @@
 
 .weapon-skin {
   color: var(--grey-light);
+  user-select: none;
 }
 
 @keyframes logo-filter-animation {

@@ -80,7 +80,7 @@
   left: 12px;
 }
 
-.stats-info .data {
+.data {
   font-size: 4rem;
   margin-top: 5px;
   color: var(--secondary-strong);

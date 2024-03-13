@@ -1,11 +1,5 @@
 <section class="weapon-detail">
-  <!-- <div class="weapon-detail-inner"></div> -->
-  <!-- <p>{{ weapon.category }}</p> -->
-  <!-- <h3>Stats:</h3> -->
-
-  <!-- <p>Category: {{ weapon.category }}</p> -->
   @for (stat of stats; track stat.property; let index = $index) {
-  <!-- <div class="weapon__stats"> -->
   <div class="stats-wrapper">
     <div
       class="stats-sector stats-sector--{{ stat['classModifier'] }}"
@@ -30,21 +24,5 @@
       [ngStyle]="getSectorStyle(index)"
     ></div>
   </div>
-  <!-- </div> -->
   }
-
-  <!-- <div>
-  <h3>Skins:</h3>
-  @for (skin of weapon.skins; track skin.id) {
-    <ul>
-      @if (!skin.name.includes("Standard") && !skin.name.includes("Random")) {
-        <li>
-          <p>{{ skin.name }}</p>
-          <img src="{{ skin.image }}" alt="{{ skin.name }} image" />
-        </li>
-        
-      }
-    </ul>
-  }
-</div> -->
 </section>
