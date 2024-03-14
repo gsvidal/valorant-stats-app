@@ -25,10 +25,24 @@ export class AppComponent {
   skinsLength: number = 0;
   weapons!: Weapon[];
   weaponClickedIndex!: number;
+  isZoomedIn: boolean = false;
+  isWeaponImageHovered: boolean = false;
+  isZoomedWeaponHovered: boolean = false;
+
+  ngOnInit() {
+    // Optionally, listen for keydown events on document load
+    document.addEventListener('keydown', this.handleKeyDown.bind(this));
+  }
+
+  ngOnDestroy() {
+    // Remove event listener on component destruction
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }
 
   handleBackdrop(value: boolean) {
     this.isBackdropOpen = value;
     this.skinIndex = null;
+    this.isZoomedIn = false;
   }
 
   // Filter out Random and Standard Skins, also skins without image (null)
@@ -104,5 +118,41 @@ export class AppComponent {
     }
     this.weaponClicked = this.weapons[this.weaponClickedIndex];
     this.skinIndex = null;
+  }
+
+  handleZoomIn(value: boolean) {
+    this.isZoomedIn = value;
+    this.isWeaponImageHovered = false;
+    this.isZoomedWeaponHovered = false;
+  }
+
+  handleShowZoomInIcon(value: boolean) {
+    if (!this.isZoomedIn) {
+      this.isWeaponImageHovered = value;
+    }
+  }
+
+  handleShowZoomOutIcon(value: boolean) {
+    console.log(this.isZoomedIn);
+    if (this.isZoomedIn) {
+      this.isWeaponImageHovered = false;
+      this.isZoomedWeaponHovered = value;
+    }
+  }
+
+  handleKeyDown(event: KeyboardEvent) {
+    console.log(event);
+    if (event.key === 'Escape') {
+      if (this.isZoomedIn) {
+        this.handleZoomIn(false);
+        return;
+      }
+    }
+    if (event.key === 'Escape') {
+      if (this.isBackdropOpen) {
+        this.handleBackdrop(false);
+        return;
+      }
+    }
   }
 }

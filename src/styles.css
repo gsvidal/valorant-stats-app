@@ -15,7 +15,7 @@
   --white-opac-15: rgba(255, 255, 255, 0.15);
   --white-opac-5: rgba(255, 255, 255, 0.05);
 
-  --background-size: 1000px;
+  --background-size: 4650px;
   --background-position: top;
 
   --sector-inner-width: 250px;
@@ -38,7 +38,9 @@ html {
 }
 
 body {
+  width: 100vw;
   height: 100vh;
+  object-fit: cover;
   background-image: url("./assets/images/map.jpg");
   background-repeat: no-repeat;
   animation: slidein 50s infinite alternate forwards;
@@ -58,38 +60,46 @@ body {
     background-size: calc(var(--background-size) + 750px);
   }
 }
+h1 {
+  font-size: 6rem;
+  padding: 20px 0;
+}
 
+h2 {
+  font-size: 4.5rem;
+  color: white;
+}
 @media screen and (min-width: 600px) {
-  :root {
-    --background-size: 2000px;
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 6rem;
   }
 }
 
 @media screen and (min-width: 1000px) {
   :root {
-    --background-size: 3000px;
+    --background-size: 4800px;
+  }
+  h1 {
+    font-size: 12rem;
+  }
+  h2 {
+    font-size: 7rem;
   }
 }
 
 @media screen and (min-width: 1920px) {
   :root {
-    --background-size: 4000px;
+    --background-size: 5300px;
   }
 }
 
 @media screen and (min-width: 3000px) {
   :root {
-    --background-size: 6500px;
+    --background-size: 8000px;
   }
-}
-h1 {
-  font-size: 12rem;
-  padding: 40px 0;
-}
-
-h2 {
-  font-size: 7rem;
-  color: white;
 }
 
 .backdrop {
