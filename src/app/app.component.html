@@ -9,20 +9,55 @@
   @if (isBackdropOpen) {
   <div class="backdrop">
     <span class="closeWeaponDetail" (click)="handleBackdrop(false)"></span>
-    <span (click)="handlePreviousWeapon()" class="weapon-controller weapon-controller--prev"></span>
-    <span (click)="handleNextWeapon()" class="weapon-controller weapon-controller--next"></span>
+    <span
+      (click)="handlePreviousWeapon()"
+      class="weapon-controller weapon-controller--prev"
+    ></span>
+    <span
+      (click)="handleNextWeapon()"
+      class="weapon-controller weapon-controller--next"
+    ></span>
     <app-weapon-detail [weapon]="weaponClicked" />
     <div class="weapon-detail-inner">
       <span
-        class="skin-controller skin-controller--up"
+        [ngClass]="{
+          'skin-controller skin-controller--up': true,
+          'zoomed-in': isZoomedIn ,
+        }"
         (click)="handlePreviousSkin()"
       ></span>
       <p class="weapon-name">{{ weaponClicked.name }}</p>
-      <figure>
+      <span
+        class="zoom zoom--in"
+        (click)="handleZoomIn(true)"
+        [ngClass]="{
+          isShown: isWeaponImageHovered
+        }"
+        (mouseover)="handleShowZoomInIcon(true)"
+        (mouseleave)="handleShowZoomInIcon(false)"
+      ></span>
+      <figure
+        [ngClass]="{
+          'zoomed-in': isZoomedIn,
+        }"
+        (mouseover)="handleShowZoomInIcon(true)"
+        (mouseleave)="handleShowZoomInIcon(false)"
+
+      >
+        <span
+          class="zoom zoom--out"
+          (click)="handleZoomIn(false)"
+          [ngClass]="{
+            isShown: isZoomedWeaponHovered
+          }"
+          (mouseover)="handleShowZoomOutIcon(true)"
+          (mouseleave)="handleShowZoomOutIcon(false)"
+        ></span>
         <img
           [ngClass]="{
             'weapon-image': true,
-            'side-arm': weaponClicked.category === 'Sidearm'
+            'side-arm': weaponClicked.category === 'Sidearm',
+            'zoomed-in': isZoomedIn,
           }"
           src="{{
             skinIndex !== null
@@ -35,6 +70,8 @@
               : 'Standard'
           }} skin"
           width="190"
+          (mouseover)="handleShowZoomOutIcon(true)"
+          (mouseleave)="handleShowZoomOutIcon(false)"
         />
       </figure>
       <p class="weapon-skin">
@@ -45,7 +82,9 @@
         }}
       </p>
       <span
-        class="skin-controller skin-controller--down"
+        class="skin-controller skin-controller--down  {{
+          isZoomedIn ? 'zoomed-in' : ''
+        }}"
         (click)="handleNextSkin()"
       ></span>
     </div>

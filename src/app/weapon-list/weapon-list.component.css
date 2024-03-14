@@ -1,11 +1,12 @@
 .weapons__container {
   display: grid;
-  grid-template-columns: minmax(280px, 350px);
+  grid-template-columns: minmax(260px, 350px);
   justify-content: center;
   gap: 12px;
+  width: 350px;
   max-width: 1300px;
   padding: 20px;
-  margin: 35px;
+  margin: 35px auto;
   border: 1px solid var(--secondary-opac-25);
   border-radius: 6px;
   backdrop-filter: blur(10px);
@@ -14,24 +15,21 @@
 @media screen and (min-width: 600px) {
   .weapons__container {
     grid-template-columns: repeat(2, 1fr);
+    width: 95%;
+    margin: 35px auto;
   }
 }
 
-@media screen and (min-width: 860px) {
+@media screen and (min-width: 890px) {
   .weapons__container {
     grid-template-columns: repeat(3, 1fr);
     gap: 17px;
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1180px) {
   .weapons__container {
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media screen and (min-width: 1340px) {
-  .weapons__container {
-    margin: 25px auto;
   }
 }
 
