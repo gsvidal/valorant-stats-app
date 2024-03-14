@@ -16,12 +16,16 @@ export class WeaponListComponent implements OnInit {
   @Input() weaponDetailId!: string;
   @Output() setIsBackdropOpen = new EventEmitter<boolean>();
   @Output() setWeapon = new EventEmitter<Weapon>();
+  @Output() setWeapons = new EventEmitter<Weapon[]>();
 
   public weaponsResults$!: Observable<WeaponsResults>;
   constructor(private service: WeaponsService) {}
 
   ngOnInit(): void {
     this.weaponsResults$ = this.service.getWeaponList();
+    this.weaponsResults$.subscribe(weaponsResults => {
+      this.setAllWeapons(weaponsResults.data);
+    });
   }
 
   hoveredWeaponId: string | null = '';
@@ -47,5 +51,9 @@ export class WeaponListComponent implements OnInit {
 
   setWeaponClicked(weapon: Weapon) {
     this.setWeapon.emit(weapon);
+  }
+
+  setAllWeapons(weapons: Weapon[]) {
+    this.setWeapons.emit(weapons)
   }
 }

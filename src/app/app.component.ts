@@ -23,6 +23,8 @@ export class AppComponent {
   weaponClicked!: Weapon;
   skinIndex: number | null = null;
   skinsLength: number = 0;
+  weapons!: Weapon[];
+  weaponClickedIndex!: number;
 
   handleBackdrop(value: boolean) {
     this.isBackdropOpen = value;
@@ -44,6 +46,8 @@ export class AppComponent {
     this.weaponClicked = { ...weapon };
     this.filterSkins(this.weaponClicked);
     this.skinsLength = this.weaponClicked?.skins?.length;
+    this.findWeaponIndex(this.weaponClicked);
+    console.log(this.weaponClickedIndex);
   }
 
   handlePreviousSkin() {
@@ -64,5 +68,41 @@ export class AppComponent {
     } else if (this.skinIndex === this.skinsLength - 1) {
       this.skinIndex = null;
     }
+  }
+
+  handleWeapons(weapons: Weapon[]) {
+    this.weapons = weapons.filter((weapon: Weapon) => weapon.name !== 'Melee');
+    // this.weapons = [...weapons];
+    console.log(this.weapons);
+  }
+
+  findWeaponIndex(weapon: Weapon) {
+    const index = this.weapons.findIndex(
+      (weaponItem) => weaponItem.id === weapon.id
+    );
+    if (index !== -1) {
+      this.weaponClickedIndex = index;
+    } else {
+      return;
+    }
+    console.log(this.weaponClickedIndex);
+  }
+
+  handleNextWeapon() {
+    this.weaponClickedIndex += 1;
+    if (this.weaponClickedIndex >= this.weapons.length) {
+      this.weaponClickedIndex = 0;
+    }
+    this.weaponClicked = this.weapons[this.weaponClickedIndex];
+    this.skinIndex = null;
+  }
+
+  handlePreviousWeapon() {
+    this.weaponClickedIndex -= 1;
+    if (this.weaponClickedIndex < 0) {
+      this.weaponClickedIndex = this.weapons.length - 1;
+    }
+    this.weaponClicked = this.weapons[this.weaponClickedIndex];
+    this.skinIndex = null;
   }
 }

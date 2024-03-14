@@ -86,7 +86,7 @@
 .closeWeaponDetail {
   position: absolute;
   top: calc(50vh - var(--sector-outer-width) / 2 - 50px);
-  left: calc(50vw + var(--sector-outer-width) / 2);
+  left: calc(50vw + var(--sector-outer-width) / 2 + 25px);
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -103,3 +103,33 @@
   transition: all 0.4s linear;
 }
 
+.closeWeaponDetail:active {
+  filter: invert(20%) sepia(100%) saturate(5);
+}
+
+.weapon-controller {
+  position: absolute;
+  top: calc(50vh - 40px);
+  left: calc(50vw - var(--sector-outer-width) / 1.5);
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background: url("../assets/icons/caret-left.svg") center/cover no-repeat;
+  cursor: pointer;
+  filter: invert(50%);
+  transition: filter 0.2s ease;
+}
+
+.weapon-controller.weapon-controller--next {
+  background-image: url("../assets/icons/caret-right.svg");
+  left: calc(50vw + var(--sector-outer-width) / 1.5 - 80px);
+}
+
+.weapon-controller:hover {
+  filter: invert(100%);
+  transition: filter 0.4s ease;
+}
+
+.weapon-controller:active {
+  filter: invert(20%) sepia(100%) saturate(5);
+}

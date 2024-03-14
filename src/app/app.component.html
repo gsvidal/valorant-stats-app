@@ -4,10 +4,13 @@
     weaponDetailId="{{ weaponDetailId }}"
     (setIsBackdropOpen)="handleBackdrop($event)"
     (setWeapon)="handleClickOnWeapon($event)"
+    (setWeapons)="handleWeapons($event)"
   />
   @if (isBackdropOpen) {
   <div class="backdrop">
     <span class="closeWeaponDetail" (click)="handleBackdrop(false)"></span>
+    <span (click)="handlePreviousWeapon()" class="weapon-controller weapon-controller--prev"></span>
+    <span (click)="handleNextWeapon()" class="weapon-controller weapon-controller--next"></span>
     <app-weapon-detail [weapon]="weaponClicked" />
     <div class="weapon-detail-inner">
       <span
