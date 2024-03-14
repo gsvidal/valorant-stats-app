@@ -82,3 +82,24 @@
   background-image: url("../assets/icons/chevrons-down.svg");
   top: 10px;
 }
+
+.closeWeaponDetail {
+  position: absolute;
+  top: calc(50vh - var(--sector-outer-width) / 2 - 50px);
+  left: calc(50vw + var(--sector-outer-width) / 2);
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: url("../assets/icons/x-circle.svg") center/cover no-repeat;
+  cursor: pointer;
+  filter: invert(100%) opacity(50%);
+  transform: initial;
+  transition: all 0.2s linear;
+}
+
+.closeWeaponDetail:hover {
+  filter: invert(100%) opacity(75%);
+  transform: rotateZ(-180deg);
+  transition: all 0.4s linear;
+}
+

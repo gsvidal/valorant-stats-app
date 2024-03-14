@@ -16,6 +16,8 @@ export class WeaponsAdapterService {
     return stat?.split('::')?.slice(-1)[0];
   };
 
+
+
   adaptWeaponsData(dataFromBackend: any): WeaponsResults {
     const frontendData: WeaponsResults = {
       status: dataFromBackend.status,
@@ -32,7 +34,7 @@ export class WeaponsAdapterService {
           wallPenetration:
             this.getStatSlice(weapon.weaponStats?.wallPenetration) || null,
           zoomMultiplier: weapon.weaponStats?.adsStats?.zoomMultiplier || null,
-          firstBulletAccuracy: weapon.weaponStats?.adsStats?.firstBulletAccuracy || null
+          firstBulletAccuracy: weapon.weaponStats?.firstBulletAccuracy || null
         },
         skins: weapon.skins.map((skin: any): WeaponSkin => ({
           id: skin.uuid,

@@ -26,29 +26,32 @@ export class AppComponent {
 
   handleBackdrop(value: boolean) {
     this.isBackdropOpen = value;
+    this.skinIndex = null;
   }
 
   // Filter out Random and Standard Skins, also skins without image (null)
   filterSkins(weapon: Weapon) {
-    const weaponFilteredSkins = weapon.skins.filter((skin: WeaponSkin) => !skin.name.includes("Standard") &&!skin.name.includes("Random") && skin.image !== null )
-    this.weaponClicked.skins = [...weaponFilteredSkins]
+    const weaponFilteredSkins = weapon.skins.filter(
+      (skin: WeaponSkin) =>
+        !skin.name.includes('Standard') &&
+        !skin.name.includes('Random') &&
+        skin.image !== null
+    );
+    this.weaponClicked.skins = [...weaponFilteredSkins];
   }
-
 
   handleClickOnWeapon(weapon: Weapon) {
     this.weaponClicked = { ...weapon };
-    this.filterSkins(this.weaponClicked)
+    this.filterSkins(this.weaponClicked);
     this.skinsLength = this.weaponClicked?.skins?.length;
-    // console.log(this.weaponClicked)
-    // console.log(this.skinsLength)
   }
 
   handlePreviousSkin() {
     if (this.skinIndex !== null && this.skinIndex > 0) {
       this.skinIndex -= 1;
-    } else if(this.skinIndex === null) {
+    } else if (this.skinIndex === null) {
       this.skinIndex = this.skinsLength - 1;
-    } else if(this.skinIndex === 0) {
+    } else if (this.skinIndex === 0) {
       this.skinIndex = null;
     }
   }
@@ -56,9 +59,9 @@ export class AppComponent {
   handleNextSkin() {
     if (this.skinIndex !== null && this.skinIndex < this.skinsLength - 1) {
       this.skinIndex += 1;
-    } else if(this.skinIndex === null) {
+    } else if (this.skinIndex === null) {
       this.skinIndex = 0;
-    } else if(this.skinIndex === this.skinsLength - 1) {
+    } else if (this.skinIndex === this.skinsLength - 1) {
       this.skinIndex = null;
     }
   }

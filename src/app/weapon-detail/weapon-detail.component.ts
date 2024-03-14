@@ -61,4 +61,18 @@ export class WeaponDetailComponent {
   // 30 - 6 (360/6 / 2)
   // 45 - 8 (360/8)
   // 60 - 12 (360/12 * 2)
+
+  displayWeaponStat(statValue: number | string | null): number | string {
+    if (statValue && typeof statValue === 'number' && statValue > 0) {
+      return this.formatStat(statValue);
+    } else if (statValue && typeof statValue === 'string') {
+      return statValue;
+    } else {
+      return '-';
+    }
+  }
+
+  formatStat = (data: number): number => {
+    return parseFloat(data?.toFixed(2));
+  };
 }

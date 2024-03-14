@@ -6,14 +6,10 @@
       [ngStyle]="getSectorStyle(index)"
     ></div>
 
-    <div
-      class="stats-info number--{{ index + 1 }}"
-    >
+    <div class="stats-info number--{{ index + 1 }}">
       <p>{{ stat["title"] }}</p>
       <p class="data">
-        {{
-          weapon.stats[stat.property] ? weapon.stats[stat.property] : "-"
-        }}
+        {{ displayWeaponStat(weapon.stats[stat.property]) }}
       </p>
       <p class="stat-icon stat-icon--{{ stat['classModifier'] }}"></p>
     </div>

@@ -4,8 +4,8 @@ export interface WeaponStats {
   equipTimeSeconds: number | null;
   reloadTimeSeconds: number | null;
   wallPenetration: string | null;
-  zoomMultiplier: string | null;
-  firstBulletAccuracy: string | null;
+  zoomMultiplier: number | null;
+  firstBulletAccuracy: number | null;
 }
 
 export interface WeaponSkin {
