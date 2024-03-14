@@ -18,6 +18,8 @@
   --background-size: 4650px;
   --background-position: top;
 
+  --sector-inner-width-mobile: 150px;
+  --sector-outer-width-mobile: 310px;
   --sector-inner-width: 250px;
   --sector-outer-width: 530px;
 }
@@ -38,8 +40,6 @@ html {
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
   object-fit: cover;
   background-image: url("./assets/images/map.jpg");
   background-repeat: no-repeat;

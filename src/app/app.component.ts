@@ -54,6 +54,7 @@ export class AppComponent {
         skin.image !== null
     );
     this.weaponClicked.skins = [...weaponFilteredSkins];
+    console.log(this.weaponClicked.skins)
   }
 
   handleClickOnWeapon(weapon: Weapon) {

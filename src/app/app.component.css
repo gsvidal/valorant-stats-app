@@ -43,8 +43,7 @@
 
 .weapon-image.zoomed-in {
   transform: scale(2.5);
-  transition: all .15s ease-in-out;
-
+  transition: all 0.15s ease-in-out;
 }
 
 .weapon-image.side-arm {
@@ -182,4 +181,70 @@
 
 .zoom.isShown {
   display: inline-block;
+}
+
+@media screen and (max-width: 700px) {
+  .weapon-detail-inner {
+    top: calc(50vh - (var(--sector-inner-width-mobile) / 2));
+    left: calc(50vw - (var(--sector-inner-width-mobile) / 2));
+    width: var(--sector-inner-width-mobile);
+    height: var(--sector-inner-width-mobile);
+    border: 5px solid var(--main-opac-90);
+  }
+  .weapon-detail-inner figure {
+    height: 62px;
+  }
+  .weapon-detail-inner figure.zoomed-in {
+    width: 300px;
+    height: 180px;
+    padding: 5px;
+  }
+  .weapon-image {
+    width: 136px;
+  }
+  .weapon-image.zoomed-in {
+    transform: scale(1.8);
+    transition: all 0.15s ease-in-out;
+  }
+  .weapon-image.side-arm {
+    width: 84px;
+  }
+
+  .weapon-name {
+    font-size: 1.6rem;
+  }
+  .weapon-skin {
+    font-size: 1.1rem;
+  }
+
+  .skin-controller {
+    top: 0;
+  }
+  .skin-controller--down {
+    top: 0px;
+  }
+
+  .skin-controller.zoomed-in {
+    top: -35px;
+  }
+
+  .skin-controller--down.zoomed-in {
+    top: 35px;
+  }
+  .closeWeaponDetail {
+    top: calc(50vh - var(--sector-outer-width-mobile) / 2 - 20px);
+    left: calc(50vw + var(--sector-outer-width-mobile) / 2 - 20px);
+    width: 40px;
+    height: 40px;
+  }
+  .weapon-controller {
+    top: calc(50vh - 25px);
+    left: calc(50vw - var(--sector-outer-width-mobile) / 1.65);
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+  }
+  .weapon-controller.weapon-controller--next {
+    left: calc(50vw + var(--sector-outer-width-mobile) / 1.65 - 48px);
+  }
 }

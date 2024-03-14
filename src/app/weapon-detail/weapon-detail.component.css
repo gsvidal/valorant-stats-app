@@ -116,3 +116,56 @@
 .stat-icon--first-bullet-accuracy {
   background-image: url("../../assets/icons/first-bullet-accuracy.png");
 }
+
+@media screen and (max-width: 700px) {
+  .weapon-detail {
+    top: calc(50vh - (var(--sector-outer-width-mobile) / 2));
+    left: calc(50vw - (var(--sector-outer-width-mobile) / 2));
+    width: var(--sector-outer-width-mobile);
+    height: var(--sector-outer-width-mobile);
+    font-size: 2.5rem;
+  }
+  .stats-wrapper {
+    width: var(--sector-outer-width-mobile);
+    height: var(--sector-outer-width-mobile);
+  }
+  .stats-info {
+    top: 5px;
+    left: 90px;
+    width: 130px;
+    font-size: 1.2rem;
+  }
+  .stat-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stats-info.number--2 {
+    top: 73px;
+    left: 190px;
+  }
+
+  .stats-info.number--3 {
+    top: 185px;
+    left: 195px;
+  }
+
+  .stats-info.number--4 {
+    top: 235px;
+    left: 92px;
+  }
+
+  .stats-info.number--5 {
+    top: 183px;
+    left: -10px;
+  }
+
+  .stats-info.number--6 {
+    top: 76px;
+    left: -2px;
+  }
+  .data {
+    font-size: 2rem;
+  }
+
+}

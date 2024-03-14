@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {
   Weapon,
   WeaponSkin,
-  WeaponStats,
   WeaponsResults,
 } from '../../interfaces/weapon';
 
@@ -15,8 +14,6 @@ export class WeaponsAdapterService {
   getStatSlice = (stat: string): string => {
     return stat?.split('::')?.slice(-1)[0];
   };
-
-
 
   adaptWeaponsData(dataFromBackend: any): WeaponsResults {
     const frontendData: WeaponsResults = {
