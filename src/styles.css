@@ -1,1 +1,113 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --main: rgb(29, 29, 29);
+  --main-opac-50: rgba(29, 29, 29, 0.5);
+  --main-opac-90: rgba(29, 29, 29, 0.9);
+  --secondary-light: rgb(231, 224, 187);
+  --secondary-opac-25: rgba(190, 163, 9, 0.25);
+  --secondary-opac-50: rgba(190, 163, 9, 0.5);
+  --secondary-strong: rgb(212, 181, 0);
+  --secondary: rgb(190, 163, 9);
+  --grey: grey;
+  --grey-darker: rgb(58, 58, 58);
+  --grey-dark: rgb(75, 75, 75);
+  --grey-light: rgb(172, 172, 172);
+  --white-opac-50: rgba(255, 255, 255, 0.5);
+  --white-opac-15: rgba(255, 255, 255, 0.15);
+  --white-opac-5: rgba(255, 255, 255, 0.05);
+
+  --background-size: 4650px;
+  --background-position: top;
+
+  --sector-inner-width: 250px;
+  --sector-outer-width: 530px;
+}
+
+@font-face {
+  font-family: "Tugsten-Bold";
+  src: url("./assets/Tungsten-Bold/Tungsten-Bold.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  background-image: url("./assets/images/map.jpg");
+  background-repeat: no-repeat;
+  animation: slidein 50s infinite alternate forwards;
+  font-size: 1.4rem;
+  font-family: "Tugsten-Bold", arial, georgia, sans-serif;
+  color: var(--secondary);
+  text-align: center;
+}
+
+@keyframes slidein {
+  from {
+    background-position: var(--background-position);
+    background-size: var(--background-size);
+  }
+  to {
+    background-position: calc(-1000px) 0px;
+    background-size: calc(var(--background-size) + 750px);
+  }
+}
+h1 {
+  font-size: 6rem;
+  padding: 20px 0;
+}
+
+h2 {
+  font-size: 4.5rem;
+  color: white;
+}
+@media screen and (min-width: 600px) {
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  :root {
+    --background-size: 4800px;
+  }
+  h1 {
+    font-size: 12rem;
+  }
+  h2 {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  :root {
+    --background-size: 5300px;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  :root {
+    --background-size: 8000px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-opac-90);
+}

@@ -1,0 +1,118 @@
+.weapon-detail {
+  position: relative;
+  top: calc(50vh - (var(--sector-outer-width) / 2));
+  left: calc(50vw - (var(--sector-outer-width) / 2));
+  z-index: 2;
+  width: var(--sector-outer-width);
+  height: var(--sector-outer-width);
+  border-radius: 50%;
+  color: var(--secondary);
+  font-size: 3rem;
+  border: 1px solid black;
+}
+
+.stats-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--sector-outer-width);
+  height: var(--sector-outer-width);
+  border-radius: 50%;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.stats-sector {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vw;
+  background: var(--grey-darker);
+  transform-origin: 0 0;
+  z-index: 1;
+  border: 2px solid var(--main-opac-90);
+}
+
+.stats-sector2 {
+  background-color: rgba(255, 255, 255, 0.05);
+  z-index: 3;
+}
+
+.stats-sector2:hover {
+  background-color: rgba(163, 163, 163, 0.35);
+  border: 1px ridge var(--grey);
+}
+
+.stats-info {
+  position: relative;
+  top: 10px;
+  left: 165px;
+  z-index: 2;
+  width: 200px;
+  color: var(--grey-light);
+  cursor: initial;
+  font-size: 2.1rem;
+}
+
+.stats-info.number--2 {
+  top: 120px;
+  left: 330px;
+}
+
+.stats-info.number--3 {
+  top: 290px;
+  left: 355px;
+}
+
+.stats-info.number--4 {
+  top: 400px;
+  left: 165px;
+}
+
+.stats-info.number--5 {
+  top: 290px;
+  left: -20px;
+}
+
+.stats-info.number--6 {
+  top: 120px;
+  left: 12px;
+}
+
+.data {
+  font-size: 4rem;
+  margin-top: 5px;
+  color: var(--secondary-strong);
+}
+
+.stat-icon {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: url("../../assets/icons/equip-time.png") center/cover no-repeat;
+}
+
+.stat-icon--fire-rate {
+  background-image: url("../../assets/icons/fire-rate.png");
+}
+
+.stat-icon--equip-time {
+  background-image: url("../../assets/icons/equip-time.png");
+}
+
+.stat-icon--reload-time {
+  background-image: url("../../assets/icons/reload-time.png");
+}
+
+.stat-icon--wall-penetration {
+  background-image: url("../../assets/icons/wall-penetration.png");
+}
+
+.stat-icon--zoom-multiplier {
+  background-image: url("../../assets/icons/zoom-multiplier.png");
+}
+
+.stat-icon--first-bullet-accuracy {
+  background-image: url("../../assets/icons/first-bullet-accuracy.png");
+}

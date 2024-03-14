@@ -1,0 +1,24 @@
+<section class="weapon-detail">
+  @for (stat of stats; track stat.property; let index = $index) {
+  <div class="stats-wrapper">
+    <div
+      class="stats-sector stats-sector--{{ stat['classModifier'] }}"
+      [ngStyle]="getSectorStyle(index)"
+    ></div>
+
+    <div class="stats-info number--{{ index + 1 }}">
+      <p>{{ stat["title"] }}</p>
+      <p class="data">
+        {{ displayWeaponStat(weapon.stats[stat.property]) }}
+      </p>
+      <p class="stat-icon stat-icon--{{ stat['classModifier'] }}"></p>
+    </div>
+    <div
+      class="stats-sector stats-sector2 stats-sector--{{
+        stat['classModifier']
+      }}"
+      [ngStyle]="getSectorStyle(index)"
+    ></div>
+  </div>
+  }
+</section>

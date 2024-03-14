@@ -1,0 +1,185 @@
+.weapon-detail-inner {
+  position: absolute;
+  top: calc(50vh - (var(--sector-inner-width) / 2));
+  left: calc(50vw - (var(--sector-inner-width) / 2));
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--sector-inner-width);
+  height: var(--sector-inner-width);
+  border-radius: 50%;
+  border: 15px solid var(--main-opac-90);
+  background-color: var(--grey-darker);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weapon-detail-inner figure {
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95px;
+}
+
+.weapon-detail-inner figure.zoomed-in {
+  position: absolute;
+  width: 700px;
+  height: 400px;
+  padding: 20px;
+  background-color: rgba(24, 24, 24, 0.97);
+  border-radius: 10px;
+  transition: all 0.25s ease-in-out;
+}
+
+.weapon-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+}
+
+.weapon-image.zoomed-in {
+  transform: scale(2.5);
+  transition: all .15s ease-in-out;
+
+}
+
+.weapon-image.side-arm {
+  width: 130px;
+}
+
+.weapon-name {
+  font-size: 2.2rem;
+}
+
+.weapon-skin {
+  color: var(--grey-light);
+  user-select: none;
+}
+
+@keyframes logo-filter-animation {
+  0% {
+    filter: invert(0%) sepia(11%) saturate(527%) hue-rotate(150deg)
+      brightness(107%) contrast(99%);
+  }
+  33% {
+    filter: invert(33%) sepia(48%) saturate(729%) hue-rotate(222deg)
+      brightness(100%) contrast(101%);
+  }
+  66% {
+    filter: invert(66%) sepia(57%) saturate(638%) hue-rotate(273deg)
+      brightness(90%) contrast(87%);
+  }
+  100% {
+    filter: invert(100%) sepia(57%) saturate(638%) hue-rotate(273deg)
+      brightness(90%) contrast(87%);
+  }
+}
+
+.skin-controller {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url("../assets/icons/chevrons-up.svg") center/cover no-repeat;
+  position: relative;
+  top: -10px;
+  z-index: 4;
+  cursor: pointer;
+  animation: logo-filter-animation 2s infinite alternate;
+}
+
+.skin-controller.zoomed-in {
+  top: -105px;
+}
+
+.skin-controller:hover {
+  filter: brightness(100%);
+  animation: none;
+}
+
+.skin-controller--down {
+  background-image: url("../assets/icons/chevrons-down.svg");
+  top: 10px;
+}
+
+.skin-controller--down.zoomed-in {
+  top: 105px;
+}
+
+.closeWeaponDetail {
+  position: absolute;
+  top: calc(50vh - var(--sector-outer-width) / 2 - 50px);
+  left: calc(50vw + var(--sector-outer-width) / 2 + 25px);
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: url("../assets/icons/x-circle.svg") center/cover no-repeat;
+  cursor: pointer;
+  filter: invert(100%) opacity(50%);
+  transform: initial;
+  transition: all 0.2s linear;
+}
+
+.closeWeaponDetail:hover {
+  filter: invert(100%) opacity(75%);
+  transform: rotateZ(-180deg);
+  transition: all 0.4s linear;
+}
+
+.closeWeaponDetail:active {
+  filter: invert(20%) sepia(100%) saturate(5);
+}
+
+.weapon-controller {
+  position: absolute;
+  top: calc(50vh - 40px);
+  left: calc(50vw - var(--sector-outer-width) / 1.5);
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background: url("../assets/icons/caret-left.svg") center/cover no-repeat;
+  cursor: pointer;
+  filter: invert(50%);
+  transition: all 0.15s ease;
+}
+
+.weapon-controller.weapon-controller--next {
+  background-image: url("../assets/icons/caret-right.svg");
+  left: calc(50vw + var(--sector-outer-width) / 1.5 - 80px);
+}
+
+.weapon-controller:hover {
+  background-image: url("../assets/icons/caret-left-filled.svg");
+  transition: all 0.2s ease;
+  filter: invert(100%);
+}
+
+.weapon-controller.weapon-controller--next:hover {
+  background-image: url("../assets/icons/caret-right-filled.svg");
+}
+
+.weapon-controller:active {
+  filter: invert(20%) sepia(100%) saturate(5);
+}
+
+.zoom {
+  position: absolute;
+  z-index: 4;
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url("../assets/icons/zoom-in.svg") center/cover no-repeat;
+  cursor: pointer;
+  filter: invert(100%);
+}
+
+.zoom--out {
+  background-image: url("../assets/icons/zoom-out.svg");
+}
+
+.zoom.isShown {
+  display: inline-block;
+}

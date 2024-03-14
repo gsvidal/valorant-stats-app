@@ -1,0 +1,18 @@
+<li class="weapon__item">
+  <span class="weapon__item-name">{{ weapon.name }}</span>
+  <img
+    src="{{
+      hoveredWeaponId !== weapon.id ? weapon.imageList : weapon.imageDetail
+    }}"
+    width="230"
+    [ngClass]="{
+      'weapon__item-image': true,
+      small: weapon.category === 'Sidearm',
+      'is_hovered': hoveredWeaponId === weapon.id,
+      'is_odin': hoveredWeaponId === weapon.id && weapon.name === 'Odin',
+      'is_judge': hoveredWeaponId === weapon.id && weapon.name === 'Judge'
+    }"
+  />
+
+  
+</li>
