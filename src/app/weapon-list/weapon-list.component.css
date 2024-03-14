@@ -3,9 +3,9 @@
   grid-template-columns: minmax(260px, 350px);
   justify-content: center;
   gap: 12px;
-  width: 350px;
+  width: 320px;
   max-width: 1300px;
-  padding: 20px;
+  padding: 12px;
   margin: 35px auto;
   border: 1px solid var(--secondary-opac-25);
   border-radius: 6px;
@@ -16,6 +16,7 @@
   .weapons__container {
     grid-template-columns: repeat(2, 1fr);
     width: 95%;
+    padding: 20px;
     margin: 35px auto;
   }
 }
