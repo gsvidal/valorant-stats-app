@@ -1,12 +1,16 @@
 <h2>All Weapons</h2>
 
-@if(weaponsResults$ | async; as resultObjects) {
-<ul class="weapons__container">
-  @for (weapon of resultObjects.data; track weapon.id) {
-    @if (weapon.name !== "Melee") {
-      <app-weapon-item [weapon]="weapon" class="weapon-item-container" (mouseover)="handleWeaponHoverId(weapon.id)" (mouseleave)="clearHover()" hoveredWeaponId={{hoveredWeaponId}} (click) = "handleClickWeapon(weapon)" weaponDetailId={{weaponDetailId}} />
+@defer {
+  @if(weaponsResults$ | async; as resultObjects) {
+    <ul class="weapons__container">
+      @for (weapon of resultObjects.data; track weapon.id) {
+        @if (weapon.name !== "Melee") {
+          <app-weapon-item [weapon]="weapon" class="weapon-item-container" (mouseover)="handleWeaponHoverId(weapon.id)" (mouseleave)="clearHover()" hoveredWeaponId={{hoveredWeaponId}} (click) = "handleClickWeapon(weapon)" weaponDetailId={{weaponDetailId}}/>
+        }
+      }
+    </ul>
     }
-  }
-</ul>
+} @loading {
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 }
 

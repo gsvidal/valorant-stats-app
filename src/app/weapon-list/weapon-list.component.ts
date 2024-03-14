@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WeaponsService } from '../services/weapons.service';
-import { Observable } from 'rxjs';
+import { Observable, tap, throwError } from 'rxjs';
 import { Weapon, WeaponsResults } from '../interfaces/weapon';
 import { AsyncPipe } from '@angular/common';
 import { WeaponItemComponent } from '../weapon-item/weapon-item.component';
+import { catchError } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-weapon-list',
@@ -17,14 +19,21 @@ export class WeaponListComponent implements OnInit {
   @Output() setIsBackdropOpen = new EventEmitter<boolean>();
   @Output() setWeapon = new EventEmitter<Weapon>();
   @Output() setWeapons = new EventEmitter<Weapon[]>();
+  @Output() isLoadingChange = new EventEmitter<boolean>(); // Emit loading state changes
 
   public weaponsResults$!: Observable<WeaponsResults>;
   constructor(private service: WeaponsService) {}
 
   ngOnInit(): void {
-    this.weaponsResults$ = this.service.getWeaponList();
-    this.weaponsResults$.subscribe(weaponsResults => {
-      this.setAllWeapons(weaponsResults.data);
+    this.weaponsResults$ = this.service.getWeaponList().pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error fetching weapons:', error);
+        return throwError(() => error.error);
+      })
+    );
+
+    this.weaponsResults$.subscribe((weaponsResults) => {
+      this.setAllWeapons(weaponsResults.data); // Assign data on success
     });
   }
 
@@ -54,6 +63,6 @@ export class WeaponListComponent implements OnInit {
   }
 
   setAllWeapons(weapons: Weapon[]) {
-    this.setWeapons.emit(weapons)
+    this.setWeapons.emit(weapons);
   }
 }
