@@ -21,9 +21,9 @@
     <div class="weapon-detail-inner">
       <span
         [ngClass]="{
-          'skin-controller skin-controller--up': true,
-          'zoomed-in': isZoomedIn ,
-        }"
+        'skin-controller skin-controller--up': true,
+        'zoomed-in': isZoomedIn ,
+      }"
         (click)="handlePreviousSkin()"
       ></span>
       <p class="weapon-name">{{ weaponClicked.name }}</p>
@@ -42,7 +42,6 @@
         }"
         (mouseover)="handleShowZoomInIcon(true)"
         (mouseleave)="handleShowZoomInIcon(false)"
-
       >
         <span
           class="zoom zoom--out"
@@ -55,10 +54,10 @@
         ></span>
         <img
           [ngClass]="{
-            'weapon-image': true,
-            'side-arm': weaponClicked.category === 'Sidearm',
-            'zoomed-in': isZoomedIn,
-          }"
+          'weapon-image': true,
+          'side-arm': weaponClicked.category === 'Sidearm',
+          'zoomed-in': isZoomedIn,
+        }"
           src="{{
             skinIndex !== null
               ? weaponClicked.skins[skinIndex]['image']

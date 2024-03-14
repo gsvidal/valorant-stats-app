@@ -86,8 +86,6 @@ export class AppComponent {
 
   handleWeapons(weapons: Weapon[]) {
     this.weapons = weapons.filter((weapon: Weapon) => weapon.name !== 'Melee');
-    // this.weapons = [...weapons];
-    console.log(this.weapons);
   }
 
   findWeaponIndex(weapon: Weapon) {
