@@ -1,7 +1,7 @@
 
 <h1 align="center">Valorant Stats App</h1>
 <a href="https://www.gonzalovidal.dev/valorant-stats">
-  <img src="" width="700">
+  <img src="https://i.postimg.cc/4Nq4y4Dp/valorant.gif" width="700">
 </a> 
 <h3>Live at: https://www.gonzalovidal.dev/valorant-stats</h3>
 
