@@ -54,7 +54,6 @@ export class AppComponent {
         skin.image !== null
     );
     this.weaponClicked.skins = [...weaponFilteredSkins];
-    console.log(this.weaponClicked.skins)
   }
 
   handleClickOnWeapon(weapon: Weapon) {
@@ -62,7 +61,6 @@ export class AppComponent {
     this.filterSkins(this.weaponClicked);
     this.skinsLength = this.weaponClicked?.skins?.length;
     this.findWeaponIndex(this.weaponClicked);
-    console.log(this.weaponClickedIndex);
   }
 
   handlePreviousSkin() {
@@ -98,7 +96,6 @@ export class AppComponent {
     } else {
       return;
     }
-    console.log(this.weaponClickedIndex);
   }
 
   handleNextWeapon() {
@@ -106,7 +103,7 @@ export class AppComponent {
     if (this.weaponClickedIndex >= this.weapons.length) {
       this.weaponClickedIndex = 0;
     }
-    this.weaponClicked = this.weapons[this.weaponClickedIndex];
+    this.handleClickOnWeapon(this.weapons[this.weaponClickedIndex]);
     this.skinIndex = null;
   }
 
@@ -115,7 +112,7 @@ export class AppComponent {
     if (this.weaponClickedIndex < 0) {
       this.weaponClickedIndex = this.weapons.length - 1;
     }
-    this.weaponClicked = this.weapons[this.weaponClickedIndex];
+    this.handleClickOnWeapon(this.weapons[this.weaponClickedIndex]);
     this.skinIndex = null;
   }
 
@@ -132,7 +129,6 @@ export class AppComponent {
   }
 
   handleShowZoomOutIcon(value: boolean) {
-    console.log(this.isZoomedIn);
     if (this.isZoomedIn) {
       this.isWeaponImageHovered = false;
       this.isZoomedWeaponHovered = value;
@@ -140,7 +136,6 @@ export class AppComponent {
   }
 
   handleKeyDown(event: KeyboardEvent) {
-    console.log(event);
     if (event.key === 'Escape') {
       if (this.isZoomedIn) {
         this.handleZoomIn(false);

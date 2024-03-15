@@ -40,7 +40,6 @@ export class WeaponsAdapterService {
         })),
       })),
     };
-    console.log(frontendData);
     return frontendData;
   }
 }
