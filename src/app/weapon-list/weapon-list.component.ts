@@ -48,7 +48,6 @@ export class WeaponListComponent implements OnInit {
   }
 
   handleClickWeapon(weapon: Weapon) {
-    console.log(weapon);
     this.weaponDetailId = weapon.id;
     this.setBackdrop(true);
     this.setWeaponClicked(weapon);
