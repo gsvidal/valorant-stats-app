@@ -33,6 +33,7 @@ With this app you can check out all the valorant weapons, click on a weapon and 
 - Users can visualize weapon's skin with the skin inner controller (up and down).
 - Users can change weapon with the weapon outer controller (left and right).
 - Users can zoom-in and zoom-out weapons in the weapon detail view.
+- Responsive design mobile and desktop.
 
 ## Usage
 
